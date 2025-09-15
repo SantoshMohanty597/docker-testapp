@@ -2,6 +2,7 @@ version: "3.8"
 
 services:
   testapp1_container:
+    build: .
     image: axe59738/testapp1_1st
     ports:
       - "27017:27017"
