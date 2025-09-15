@@ -7,7 +7,5 @@ RUN mkdir -p testapp
 
 
 COPY . /testapp
-RUN docker compose -f docker-compose.yaml up -d
-
 
 CMD ["node","/testapp/server.js"]
