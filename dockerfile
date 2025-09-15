@@ -5,8 +5,9 @@ ENV MONGO_DB_USERNAME=admin \
 
 RUN mkdir -p testapp
 
-RUN docker compose -f docker-compose.yaml up -d
 
 COPY . /testapp
+RUN docker compose -f docker-compose.yaml up -d
+
 
 CMD ["node","/testapp/server.js"]
