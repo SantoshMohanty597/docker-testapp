@@ -62,25 +62,25 @@ services:
         max-size: "10m"     ## Max size of log file before rotation.
         max-file: "3"       ## Max number of log files to keep.
 
-      resources:
-        limits:
-          cpus: "0.5"   ## Max CPU allocation per container.
-          memory: 512M  ## Max memory allocation per container.
-        reservations:
-          cpus: "0.25"  ## Minimum CPU reserved.
-          memory: 256M  ## Minimum memory reserved.
+    resources:
+      limits:
+        cpus: "0.5"   ## Max CPU allocation per container.
+        memory: 512M  ## Max memory allocation per container.
+      reservations:
+        cpus: "0.25"  ## Minimum CPU reserved.
+        memory: 256M  ## Minimum memory reserved.
 
-      restart_policy:
-        condition: on-failure  ## Restart only on container failure.
-                               ## Types: none, on-failure, or any.
-        delay: 5s              ## Wait time before restart.
-        max_attempts: 3        ## Max number of restart tries.
-        window: 120s           ## Time window to evaluate restart attempts.
+    restart_policy:
+      condition: on-failure  ## Restart only on container failure.
+                              ## Types: none, on-failure, or any.
+      delay: 5s              ## Wait time before restart.
+      max_attempts: 3        ## Max number of restart tries.
+      window: 120s           ## Time window to evaluate restart attempts.
 
-      placement:
-        constraints:
-          - node.role == manager   ## Runs container only on Swarm manager nodes.
-          - node.labels.region == us-east  ## Example of label-based constraint.
+    placement:
+      constraints:
+        - node.role == manager   ## Runs container only on Swarm manager nodes.
+        - node.labels.region == us-east  ## Example of label-based constraint.
 
 
   app:
